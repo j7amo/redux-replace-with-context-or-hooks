@@ -20,4 +20,4 @@ FavoriteItem.propTypes = {
   title: PropTypes.string.isRequired,
 };
 
-export default FavoriteItem;
+export default React.memo(FavoriteItem);

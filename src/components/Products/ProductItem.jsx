@@ -1,16 +1,22 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import * as PropTypes from 'prop-types';
 
 import Card from '../UI/Card';
 import './ProductItem.css';
-import ProductsContext from '../../context/products';
+import useStore from '../../store-with-hooks/store';
+import { TOGGLE_FAV } from '../../store/actions/products';
 
 function ProductItem({
   id, description, title, isFav,
 }) {
-  const { toggleFavorite } = useContext(ProductsContext);
+  // const { toggleFavorite } = useContext(ProductsContext);
+  const [, dispatch] = useStore(false);
+
   const toggleFavHandler = () => {
-    toggleFavorite(id);
+    dispatch({
+      type: TOGGLE_FAV,
+      payload: id,
+    });
   };
 
   return (
@@ -36,4 +42,4 @@ ProductItem.propTypes = {
   title: PropTypes.string.isRequired,
   isFav: PropTypes.bool.isRequired,
 };
-export default ProductItem;
+export default React.memo(ProductItem);
