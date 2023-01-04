@@ -1,18 +1,16 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useContext } from 'react';
 import * as PropTypes from 'prop-types';
 
 import Card from '../UI/Card';
 import './ProductItem.css';
-import { toggleFav } from '../../store/actions/products';
+import ProductsContext from '../../context/products';
 
 function ProductItem({
   id, description, title, isFav,
 }) {
-  const dispatch = useDispatch();
-
+  const { toggleFavorite } = useContext(ProductsContext);
   const toggleFavHandler = () => {
-    dispatch(toggleFav(id));
+    toggleFavorite(id);
   };
 
   return (
@@ -33,7 +31,7 @@ function ProductItem({
 }
 
 ProductItem.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   isFav: PropTypes.bool.isRequired,
