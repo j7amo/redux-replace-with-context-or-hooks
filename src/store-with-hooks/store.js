@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'; // to SWITCH FROM REDUX TO CUSTOM HOOK we take these STEPS:
+import { useEffect, useState } from 'react';
 
 // to SWITCH FROM REDUX TO CUSTOM HOOK we take these STEPS:
 

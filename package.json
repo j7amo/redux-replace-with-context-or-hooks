@@ -1,5 +1,5 @@
 {
-  "name": "react-hooks-update",
+  "name": "redux-replace-with-context-or-hooks",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
